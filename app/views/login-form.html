@@ -1,0 +1,24 @@
+<!-- Email and Password login form -->
+<form name="myForm" novalidate>
+    <p>Email:<br>
+        <input type="email" name="email" ng-model="email" required>
+        <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+        <span ng-show="myForm.email.$error.required">Email is required.</span>
+        <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+        </span>
+    </p>
+
+    <p>Password:<br>
+        <input type="password" name="password" ng-model="password" required>
+        <span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+        <span ng-show="myForm.password.$error.required">Username is required.</span>
+        </span>
+    </p>
+    <p ng-show="showMsg">Please make sure you have entered valid email and password!</p>
+    <p>
+        <button type="submit"
+                   ng-disabled="myForm.password.$dirty && myForm.password.$invalid ||
+    myForm.email.$dirty && myForm.email.$invalid" class="btn btn-info" ng-click="login()">Login</button>
+    </p>
+
+</form>

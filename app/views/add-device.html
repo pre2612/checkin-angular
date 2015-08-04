@@ -1,0 +1,15 @@
+<!--add device html-->
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Add Device</h1>
+        <form>
+
+            <fieldset class="form-group">
+                <label for="name">Name</label>
+                <input class="form-control" type="text" id="name" name="name" ng-model="device.name">
+            </fieldset>
+
+            <input type="submit" value="Add" class="btn btn-default" ng-click="addDevice(device)">
+        </form>
+    </div>
+</div>

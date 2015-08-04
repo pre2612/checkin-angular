@@ -1,0 +1,18 @@
+<!--loop through checkOut array in each device array-->
+<div class="row">
+    <div class="col-lg-12">
+        <div ng-repeat="devicesIn in device">
+            <div ng-repeat="checkOut in devicesIn.checkOut">
+                <table class="table">
+                    <tr>
+                        <td>{{checkOut.email}}</td>
+                        <td>{{checkOut.device}}</td>
+                        <td>{{checkOut.date}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
