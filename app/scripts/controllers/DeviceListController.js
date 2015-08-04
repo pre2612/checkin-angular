@@ -17,69 +17,26 @@ angular.module('checkinAngularApp').controller('DeviceListController', function 
     $scope.btnText2 = 'Check-out';
     $scope.email = '';
 
-    //checkout click add the device nme email and current date to the checkout object
-    $scope.checkOut = function (device, index) {
-        var ref = new Firebase(FIREBASE_URL+'/devices/'+index);
-        $scope.checkout = $firebaseArray(ref.child('/checkOut'));
-        $scope.checkout.$add({
-            date: date,
-            email: currentAuth.password.email,
-            device: device.name
-        });
-    };
-
-    //checkin click add the device nme email and current date to the checkin object
-    $scope.checkIn = function (device, index, deviceId) {
-        var ifRequest = true;
-        defer.promise.then(function () {
-            angular.forEach($scope.devices, function(device) {
-                var id = device.$id;
-                angular.forEach(device.checkOut, function(checkout) {
-                    if($scope.userEmail !== checkout.email) {
-                        if(deviceId === id) {
-                            $scope.request(device);
-                            ifRequest = false;
-                            return;
-                        }
-                    }
-                });
-
-            });
-
-        }).then(function () {
-            if (ifRequest) {
-                var ref = new Firebase(FIREBASE_URL+'/devices/'+index),
-                    checkoutref = new Firebase(FIREBASE_URL+'/devices/'+index+'/checkOut');
-                checkoutref.remove();
-                $scope.checkin = $firebaseArray(ref.child('/checkIn'));
-                $scope.checkin.$add({
-                    date: date,
-                    email: currentAuth.password.email,
-                    device: device.name
-                });
-            }
-        });
-
-        defer.resolve();
-
-    };
-
-
-    $scope.setText = function (deviceId) {
-        var text = 'Check-In',
-            id;
-        angular.forEach($scope.devices, function(device) {
-            id = device.$id;
-            angular.forEach(device.checkOut, function(checkout) {
-                if($scope.userEmail !== checkout.email) {
-                   if(deviceId === id) {
-                        text = 'Request';
-                   }
-                }
-            });
-
-        });
-        return text;
+    $scope.check = function (clicked, device, index) {
+       if(clicked) {
+           var ref = new Firebase(FIREBASE_URL+'/devices/'+index);
+           $scope.checkout = $firebaseArray(ref.child('/checkOut'));
+           $scope.checkout.$add({
+               date: date,
+               email: currentAuth.password.email,
+               device: device.name
+           });
+       } else {
+           var ref = new Firebase(FIREBASE_URL+'/devices/'+index),
+               checkoutref = new Firebase(FIREBASE_URL+'/devices/'+index+'/checkOut');
+               checkoutref.remove();
+           $scope.checkin = $firebaseArray(ref.child('/checkIn'));
+           $scope.checkin.$add({
+               date: date,
+               email: currentAuth.password.email,
+               device: device.name
+           });
+       }
     };
 
     //request device from the checked out user by sending email
@@ -89,4 +46,53 @@ angular.module('checkinAngularApp').controller('DeviceListController', function 
 
 });
 
+
+/*
+
+ $scope.checkOut = function (device, index) {
+ var ref = new Firebase(FIREBASE_URL+'/devices/'+index);
+ $scope.checkout = $firebaseArray(ref.child('/checkOut'));
+ $scope.checkout.$add({
+ date: date,
+ email: currentAuth.password.email,
+ device: device.name
+ });
+ };
+
+ //checkin click add the device nme email and current date to the checkin object
+ $scope.checkIn = function (device, index, deviceId) {
+ var ifRequest = true;
+ defer.promise.then(function () {
+ angular.forEach($scope.devices, function(device) {
+ var id = device.$id;
+ angular.forEach(device.checkOut, function(checkout) {
+ if($scope.userEmail !== checkout.email) {
+ if(deviceId === id) {
+ $scope.request(device);
+ ifRequest = false;
+ return;
+ }
+ }
+ });
+
+ });
+
+ }).then(function () {
+ if (ifRequest) {
+ var ref = new Firebase(FIREBASE_URL+'/devices/'+index),
+ checkoutref = new Firebase(FIREBASE_URL+'/devices/'+index+'/checkOut');
+ checkoutref.remove();
+ $scope.checkin = $firebaseArray(ref.child('/checkIn'));
+ $scope.checkin.$add({
+ date: date,
+ email: currentAuth.password.email,
+ device: device.name
+ });
+ }
+ });
+
+ defer.resolve();
+
+ };
+ */
 

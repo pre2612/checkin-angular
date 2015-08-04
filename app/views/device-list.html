@@ -19,7 +19,7 @@
                     </p>
                 </td>
                 <td>
-                    <button class="btn btn-info text-center checkout-click" ng-click="device.checkOut ? $parent.checkIn(device, $index, device.$id) : $parent.checkOut(device, $index)">{{device.checkOut ? setText(device.$id) : $parent.btnText2}}</button>
+                    <button class="btn btn-info text-center checkout-click" ng-click="(btn.clicked = !btn.clicked) && check(btn.clicked, device, $index)">{{btn.clicked ? "Check-In" : "Check-Out"}}</button>
                 </td>
             </tr>
             </tbody>
