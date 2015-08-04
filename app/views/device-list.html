@@ -12,15 +12,15 @@
             </thead>
 
             <tbody>
-            <tr ng-repeat="device in devices">
+            <tr ng-repeat="device in devices" multitple="true">
                 <td class="device-name">{{device.name}}</td>
                 <td class="hidden-xs hidden-sm email">
-                    <p ng-repeat="checkOut in device.checkOut" ng-init="getEmail(checkOut.email)">
+                    <p ng-repeat="checkOut in device.checkOut">
                         {{checkOut.email}}
                     </p>
                 </td>
                 <td>
-                    <button class="btn btn-info text-center checkout-click" ng-click="device.checkOut ? $parent.checkIn(device, $index) : $parent.checkOut(device, $index)">{{device.checkOut ? $parent.btnText : $parent.btnText2}}</button>
+                    <button class="btn btn-info text-center checkout-click" ng-click="device.checkOut ? $parent.checkIn(device, $index, device.$id) : $parent.checkOut(device, $index)">{{device.checkOut ? setText(device.$id) : $parent.btnText2}}</button>
                 </td>
             </tr>
             </tbody>
