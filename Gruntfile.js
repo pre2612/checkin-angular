@@ -176,8 +176,7 @@ module.exports = function (grunt) {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
         ignorePath:  /\.\.\//
-      },
-
+      }
     },
 
     // Renames files for browser caching purposes
@@ -359,9 +358,7 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
-    },
-
-    // Test settings
+    }
   });
 
 

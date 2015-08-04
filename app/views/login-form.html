@@ -16,7 +16,7 @@
         <span ng-show="myForm.password.$error.required">Username is required.</span>
         </span>
             </p>
-            <p ng-show="showMsg">Please make sure you have entered valid email and password!</p>
+            <p ng-show="showMsg">{{errorMsg}}</p>
             <p>
                 <button type="submit"
                         ng-disabled="myForm.password.$dirty && myForm.password.$invalid ||

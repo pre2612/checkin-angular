@@ -1,3 +1,5 @@
+@import url("/bower_components/bootstrap/dist/css/bootstrap.css");
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -81,3 +83,82 @@ body {
     border-bottom: 0;
   }
 }
+
+
+
+html, body {
+    background: #f8f8f8;
+    color: #484848; }
+
+.btn-info {
+    background-color: #732953;
+    border-color: #732953;
+    min-width: 100px; }
+.btn-info:focus, .btn-info:active, .btn-info:hover {
+    background-color: #732953;
+    border-color: #732953; }
+
+.logout-btn {
+    background: transparent; }
+.logout-btn i.fa {
+    font-size: 30px;
+    color: #b2bb1e; }
+
+.modal-content {
+    background-color: #e6e6e6; }
+.modal-content input {
+    width: 100%; }
+
+form #error {
+    display: none; }
+
+.content {
+    display: none; }
+.content.active {
+    display: block; }
+
+#navbar, .navbar-header {
+    background: #000; }
+#navbar li#username, .navbar-header li#username {
+    padding: 15px;
+    color: #fff; }
+#navbar a, .navbar-header a {
+    background: black;
+    color: #fff;
+    cursor: pointer; }
+#navbar a.active, .navbar-header a.active {
+    background: black;
+    color: #b2bb1e; }
+#navbar a#logout, .navbar-header a#logout {
+    padding-right: 30px; }
+
+
+.addPadding {
+    padding-top: 15px;
+    color: white;
+}
+
+a {
+    color: #732953;
+}
+
+h1,h2,h3 {
+    color: #a7ae1e;
+}
+
+.add-device {
+    position: absolute;
+    top: -90px;
+    right: -200px;
+}
+
+#navbar .navactive a, .navbar-header .navactive a {
+    color: #b2bb1e;
+}
+
+#navbar li p {
+    color: #b2bb1e;
+}
+
+
+/*# sourceMappingURL=../maps/main.css.map */
