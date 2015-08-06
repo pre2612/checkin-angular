@@ -1,59 +1,33 @@
-@import url("/bower_components/bootstrap/dist/css/bootstrap.css");
+@import url("/bower_components/bootstrap/dist/css/bootstrap.css"); /*bootstrap css*/
 
-.btn-info {
-    background-color: #732953;
-    border-color: #732953;
-    min-width: 100px; }
-.btn-info:focus, .btn-info:active, .btn-info:hover {
-    background-color: #732953;
-    border-color: #732953; }
-
-#navbar {
-    background: #000; }
-#navbar li#username {
-    padding: 15px;
-    color: #fff; }
-#navbar a {
-    background: black;
-    color: #fff;
-    cursor: pointer; }
-#navbar a.active, .navbar-header a.active {
-    background: black;
-    color: #b2bb1e; }
-#navbar a#logout, .navbar-header a#logout {
-    padding-right: 30px; }
-
-
-.addPadding {
-    padding-top: 15px;
-    color: white;
-}
-
+/* all anchor link colors */
 a {
     color: #732953;
 }
 
+/* all btn info colors are purple */
+.btn-info {
+    background-color: #732953;
+    border-color: #732953;
+    min-width: 100px; }
+
+.btn-info:focus, .btn-info:active, .btn-info:hover {
+    background-color: #732953;
+    border-color: #732953;
+}
+
+/* header colors set to green */
 h1,h2,h3 {
     color: #a7ae1e;
 }
-
+/* add padding to username as there is no anchor link and set to color to purple */
+.addPadding {
+    padding-top: 15px;
+    color: #732953;
+}
+/* set device position to right of the page */
 .add-device {
     position: absolute;
-    top: -90px;
-    right: -200px;
+    top: 0px;
+    right: -10%;
 }
-
-#navbar .navactive a, .navbar-header .navactive a {
-    color: #b2bb1e;
-}
-
-#navbar li p {
-    color: #b2bb1e;
-}
-
-#navbar {
-    min-height: 50px;
-}
-
-
-/*# sourceMappingURL=../maps/main.css.map */

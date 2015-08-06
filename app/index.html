@@ -30,7 +30,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="addPadding">
                             <!--add condition to loop throught users array to get name for logged in user email-->
-                            <p ng-repeat="key in users" ng-if="key.email == email" ng-show="showLogout" ng-bind="key.name"></p>
+                            <p ng-repeat="key in users" ng-if="key.email == email" ng-show="ifLoggedIn" ng-bind="key.name"></p>
                         </li>
                         <!--log user out -->
                         <li><a href="#" ng-click="logout()" ng-show="ifLoggedIn" ng-bind="loginText"></a></li>
