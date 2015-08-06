@@ -7,27 +7,26 @@ angular.module('checkinAngularApp').controller('DeviceListController', function 
 
     //get current date to pass on to checkin checkout arrays
     var date = new Date(),
-        defer = $q.defer();
+        defer = $q.defer(); // create promise
         date = $filter('date')(date, 'dd-MM-yyyy');
 
-    $scope.devices = Device.all;
-    $scope.userEmail = currentAuth.password.email;
-    $scope.requestDevice = false;
+    $scope.devices = Device.all; // get device list
+    $scope.userEmail = currentAuth.password.email; //get email of logged in user
     $scope.btnText2 = 'Check-out';
     $scope.email = '';
 
-    //checkout click add the device nme email and current date to the checkout object
+    //on checkout click we have to add a checkout object in device list
     $scope.checkOut = function (device, index) {
         var ref = new Firebase(FIREBASE_URL+'/devices/'+index);
         $scope.checkout = $firebaseArray(ref.child('/checkOut'));
         $scope.checkout.$add({
-            date: date,
-            email: currentAuth.password.email,
-            device: device.name
+            date: date, // get current date
+            email: currentAuth.password.email, //get users email
+            device: device.name // get device name
         });
     };
 
-    //checkin click add the device nme email and current date to the checkin object
+    //on checkin click we have to add a checkin object in device list and remove checkout
     $scope.checkIn = function (device, index, deviceId) {
         var ifRequest = true;
         defer.promise.then(function () {
@@ -42,7 +41,6 @@ angular.module('checkinAngularApp').controller('DeviceListController', function 
                         }
                     }
                 });
-
             });
 
         }).then(function () {
@@ -58,12 +56,10 @@ angular.module('checkinAngularApp').controller('DeviceListController', function 
                 });
             }
         });
-
         defer.resolve();
-
     };
 
-
+    //set text to request if loggedin user email matches checked out user email or text has to be check-in
     $scope.setText = function (deviceId) {
         var text = 'Check-In',
             id;
@@ -76,7 +72,6 @@ angular.module('checkinAngularApp').controller('DeviceListController', function 
                    }
                 }
             });
-
         });
         return text;
     };

@@ -3,5 +3,5 @@
  */
 'use strict';
 angular.module('checkinAngularApp').controller('CheckedInController', function ($scope, Device) {
-    $scope.device = Device.all;
+    $scope.device = Device.all; //get device list
 });
