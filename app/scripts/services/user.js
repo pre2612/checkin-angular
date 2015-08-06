@@ -5,5 +5,5 @@
 /*global Firebase */
 angular.module('checkinAngularApp').factory('User', function ($firebaseArray, FIREBASE_URL) {
     var ref = new Firebase(FIREBASE_URL+'users/');
-    return $firebaseArray(ref);
+    return $firebaseArray(ref);// return user list
 });

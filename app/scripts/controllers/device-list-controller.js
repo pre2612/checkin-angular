@@ -10,7 +10,6 @@ angular.module('checkinAngularApp').controller('DeviceListController', function 
         defer = $q.defer();
         date = $filter('date')(date, 'dd-MM-yyyy');
 
-
     $scope.devices = Device.all;
     $scope.userEmail = currentAuth.password.email;
     $scope.requestDevice = false;

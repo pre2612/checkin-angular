@@ -1,5 +1,5 @@
 'use strict';
-
+//we have look for routechange and redirect to login page if anot authenticated
 angular.module('checkinAngularApp').run(['$rootScope', '$location', function($rootScope, $location) {
     $rootScope.$on('$routeChangeError', function(event, next, previous, error) {
         // We can catch the error thrown when the $requireAuth promise is rejected
@@ -10,7 +10,7 @@ angular.module('checkinAngularApp').run(['$rootScope', '$location', function($ro
     });
 }]);
 
-
+//routes
 angular.module('checkinAngularApp').config(function ($routeProvider) {
     $routeProvider
         .when('/', {

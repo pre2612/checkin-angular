@@ -9,8 +9,9 @@ angular.module('checkinAngularApp').directive('checkNav', function () {
         restrict: 'E',
         templateUrl: 'views/directives/checkNav.html',
         controller: function ($scope, $location) {
+            //check if clicked nav name and location name matches
             $scope.isPage = function (name) {
-                return new RegExp('/' + name + '($|/)').test($location.path());
+                return new RegExp('/' + name + '($|/)').test($location.path());// return if location is device or checkin, check-out
             };
         }
     };

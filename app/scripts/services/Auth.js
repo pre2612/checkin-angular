@@ -5,5 +5,5 @@
 /*global Firebase */
 angular.module('checkinAngularApp').factory('Auth', function ($firebaseAuth, FIREBASE_URL) {
     var ref = new Firebase(FIREBASE_URL);
-    return $firebaseAuth(ref);
+    return $firebaseAuth(ref);// return firebase auth to see if user is logged in or not
 });

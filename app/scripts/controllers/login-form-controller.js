@@ -4,7 +4,6 @@
 'use strict';
 angular.module('checkinAngularApp').controller('LoginFormController', function ($scope, $location, Auth) {
     $scope.login = function(){
-
         Auth.$authWithPassword({
             email: $scope.email,
             password: $scope.password

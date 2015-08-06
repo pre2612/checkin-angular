@@ -8,13 +8,4 @@
  *
  * Main module of the application.
  */
-angular
-  .module('checkinAngularApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-    'firebase'
-  ]).constant('FIREBASE_URL', 'https://checkin--angular.firebaseio.com/');
+angular.module('checkinAngularApp', ['ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch', 'firebase']).constant('FIREBASE_URL', 'https://checkin--angular.firebaseio.com/');
